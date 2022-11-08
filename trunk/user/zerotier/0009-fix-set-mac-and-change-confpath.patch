@@ -1,0 +1,30 @@
+--- a/osdep/LinuxEthernetTap.cpp	2021-12-02 06:27:55.000000000 +0800
++++ b/osdep/LinuxEthernetTap.cpp	2022-10-31 09:24:21.585617807 +0800
+@@ -227,11 +227,11 @@
+ 
+ 		ifr.ifr_ifru.ifru_hwaddr.sa_family = ARPHRD_ETHER;
+ 		_mac.copyTo(ifr.ifr_ifru.ifru_hwaddr.sa_data,6);
+-		if (ioctl(sock,SIOCSIFHWADDR,(void *)&ifr) < 0) {
+-			::close(sock);
+-			printf("WARNING: ioctl() failed setting up Linux tap device (set MAC)\n");
+-			return;
+-		}
++		// if (ioctl(sock,SIOCSIFHWADDR,(void *)&ifr) < 0) {
++		// 	::close(sock);
++		// 	printf("WARNING: ioctl() failed setting up Linux tap device (set MAC)\n");
++		// 	return;
++		// }
+ 
+ 		ifr.ifr_ifru.ifru_mtu = (int)_mtu;
+ 		if (ioctl(sock,SIOCSIFMTU,(void *)&ifr) < 0) {
+--- a/osdep/OSUtils.cpp	2021-12-02 06:27:55.000000000 +0800
++++ b/osdep/OSUtils.cpp	2022-10-31 09:26:46.633053666 +0800
+@@ -417,7 +417,7 @@
+ 	return std::string("/var/db/zerotier-one");
+ #else
+ 	// Use /var/lib for Linux and other *nix
+-	return std::string("/var/lib/zerotier-one");
++	return std::string("/etc/storage/zerotier-one");
+ #endif
+ 
+ #endif
