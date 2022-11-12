@@ -20,7 +20,7 @@
  	ONE_OBJS+=ext/libnatpmp/natpmp.o ext/libnatpmp/getgateway.o
  else
  	LDLIBS+=-lnatpmp
-@@ -66,11 +66,11 @@ ifeq ($(ZT_DEBUG),1)
+@@ -70,11 +70,11 @@ ifeq ($(ZT_DEBUG),1)
  	# C25519 in particular is almost UNUSABLE in -O0 even on a 3ghz box!
  node/Salsa20.o node/SHA512.o node/C25519.o node/Poly1305.o: CXXFLAGS=-Wall -O2 -g -pthread $(INCLUDES) $(DEFS)
  else
