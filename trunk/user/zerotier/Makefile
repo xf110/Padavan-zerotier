@@ -1,4 +1,4 @@
-SRC_NAME = ZeroTierOne-1.10.2
+SRC_NAME = ZeroTierOne-1.8.6
 THISDIR = $(shell pwd)
 FLAGS := DEFS=""
 CFLAGS := -Os -ffunction-sections -fdata-sections
@@ -10,11 +10,11 @@ all: extract_test
 extract_test:
 	 if [ ! -d $(SRC_NAME) ] ; then \
 		tar xf $(SRC_NAME).tar.gz ; \
-		patch -d $(SRC_NAME) -p1 -i ../1.10.2/0001-fix-makefile.patch ; \
-		patch -d $(SRC_NAME) -p1 -i ../1.10.2/0006-gcc10.patch ; \
-		patch -d $(SRC_NAME) -p1 -i ../1.10.2/0007-add-cerrno-header-for-str-errno.patch ; \
-		patch -d $(SRC_NAME) -p1 -i ../1.10.2/0008-fix-compilation-for-arm_cortex-a7-neon.patch; \
-		patch -d $(SRC_NAME) -p1 -i ../1.10.2/0009-fix-set-mac-and-change-confpath.patch; \
+		patch -d $(SRC_NAME) -p1 -i ../1.8.6/0001-fix-makefile.patch ; \
+		#patch -d $(SRC_NAME) -p1 -i ../1.8.6/0006-gcc10.patch ; \
+		patch -d $(SRC_NAME) -p1 -i ../1.8.6/0007-add-cerrno-header-for-str-errno.patch ; \
+		patch -d $(SRC_NAME) -p1 -i ../1.8.6/0008-fix-compilation-for-arm_cortex-a7-neon.patch; \
+		patch -d $(SRC_NAME) -p1 -i ../1.8.6/0009-fix-set-mac-and-change-confpath.patch; \
 	 fi ;
 
 config_test:
