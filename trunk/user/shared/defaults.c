@@ -955,15 +955,15 @@ struct nvram_pair router_defaults[] = {
 #if !defined(BOARD_GPIO_BTN_RESET)
 	{ "ez_action_long", "15" },	/* Reset */
 #else
-	{ "ez_action_long", "0" },
+	{ "ez_action_long", "15" },
 #endif
 #if defined (BOARD_GPIO_BTN_FN1)
 	{ "fn1_action_short", "0" },
-	{ "fn1_action_long", "0" },
+	{ "fn1_action_long", "15" },
 #endif
 #if defined (BOARD_GPIO_BTN_FN2)
 	{ "fn2_action_short", "0" },
-	{ "fn2_action_long", "0" },
+	{ "fn2_action_long", "15" },
 #endif
 	{ "watchdog_cpu", "1" },
 	{ "front_led_all", "1" },
